@@ -208,7 +208,7 @@ request({
   headers: {
     'Content-Type': 'application/json',
     'os': 'linux3.2.0-4-amd64',
-    'version': '0.3.0',
+    'version': '6.3.0',
     'port': 1,
     'nethash': nethash
   }
