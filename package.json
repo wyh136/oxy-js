@@ -1,7 +1,7 @@
 {
-  "name": "lisk-js",
+  "name": "shift-js",
   "version": "0.4.0",
-  "description": "JavaScript library for sending Lisk transactions from the client or server",
+  "description": "JavaScript library for sending Shift transactions from the client or server",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:LiskHQ/lisk-js.git"
+    "url": "git@github.com:ShiftNrg/shift-js.git"
   },
   "author": "Lisk Foundation <admin@lisk.io>, lightcurve GmbH <admin@lightcurve.io>",
   "license": "MIT",
