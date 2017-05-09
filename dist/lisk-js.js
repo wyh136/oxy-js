@@ -84,24 +84,32 @@ function LiskAPI (options) {
 
 	options = options || {};
 
-	this.defaultPeers = [
-		'node01.lisk.io',
-		'node02.lisk.io',
-		'node03.lisk.io',
-		'node04.lisk.io',
-		'node05.lisk.io',
-		'node06.lisk.io',
-		'node07.lisk.io',
-		'node08.lisk.io'
-	];
+	if (options.defaultPeers) {
+		this.defaultPeers = options.defaultPeers;
+	} else {
+		this.defaultPeers = [
+			'codenode1.shiftnrg.org',
+			'codenode2.shiftnrg.org',
+			'codenode3.shiftnrg.org',
+			'codenode4.shiftnrg.org'
+		];
+	}
 
-	this.defaultSSLPeers = [
-		'login.lisk.io'
-	];
+	if (options.defaultSSLPeers) {
+		this.defaultSSLPeers = options.defaultSSLPeers;
+	} else {
+		this.defaultSSLPeers = [
+			'wallet.shiftnrg.org'
+		];
+	}
 
-	this.defaultTestnetPeers = [
-		'testnet.lisk.io'
-	];
+	if (options.defaultTestnetPeers) {
+		this.defaultTestnetPeers = options.defaultTestnetPeers;
+	} else {	
+		this.defaultTestnetPeers = [
+			'wallet.testnet.shiftnrg.org'
+		];
+	}
 
 	this.options = options;
 	this.ssl = options.ssl || false;
@@ -112,7 +120,7 @@ function LiskAPI (options) {
 	this.testnet = options.testnet || false;
 	this.bannedPeers = [];
 	this.currentPeer = options.node || this.selectNode();
-	this.port = (options.port === '' || options.port) ? options.port : 8000;
+	this.port = (options.port === '' || options.port) ? options.port : (options.testnet) ? 9405 : 9305;
 	this.parseOfflineRequests = parseOfflineRequest;
 	this.nethash = this.getNethash(options.nethash);
 }
@@ -126,20 +134,20 @@ LiskAPI.prototype.netHashOptions = function () {
 	return {
 		testnet: {
 			'Content-Type': 'application/json',
-			'nethash': 'da3ed6a45429278bac2666961289ca17ad86595d33b31037615d4b8e8f158bba',
-			'broadhash': 'da3ed6a45429278bac2666961289ca17ad86595d33b31037615d4b8e8f158bba',
-			'os': 'lisk-js-api',
-			'version': '1.0.0',
-			'minVersion': '>=0.5.0',
+			'nethash': 'cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12',
+			'broadhash': 'cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12',
+			'os': 'shift-js-api',
+			'version': '6.5.0',
+			'minVersion': '>=6.3.0',
 			'port': this.port
 		},
 		mainnet: {
 			'Content-Type': 'application/json',
-			'nethash': 'ed14889723f24ecc54871d058d98ce91ff2f973192075c0155ba2b7b70ad2511',
-			'broadhash': 'ed14889723f24ecc54871d058d98ce91ff2f973192075c0155ba2b7b70ad2511',
-			'os': 'lisk-js-api',
-			'version': '1.0.0',
-			'minVersion': '>=0.5.0',
+			'nethash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
+			'broadhash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
+			'os': 'shift-js-api',
+			'version': '6.3.0',
+			'minVersion': '>=6.3.0',
 			'port': this.port
 		}
 	};
@@ -154,8 +162,14 @@ LiskAPI.prototype.getNethash = function (providedNethash) {
 	var NetHash = (this.testnet) ? this.netHashOptions().testnet : this.netHashOptions().mainnet;
 
 	if (providedNethash) {
-		NetHash.nethash = providedNethash;
-		NetHash.version = '0.0.0a';
+		if (typeof providedNethash == 'object') {
+			NetHash.nethash = providedNethash.nethash;
+			NetHash.os = providedNethash.os;
+			NetHash.version = providedNethash.version;
+		} else {
+			NetHash.nethash = providedNethash;
+			NetHash.version = '0.0.0a';
+		}
 	}
 
 	return NetHash;
@@ -339,7 +353,7 @@ LiskAPI.prototype.checkReDial = function () {
 
 LiskAPI.prototype.checkOptions = function (options) {
 	Object.keys(options).forEach(function (optionKey) {
-		if (options[optionKey] === undefined || options[optionKey] === null || options[optionKey] !== options[optionKey] || options[optionKey] === false) {
+		if (options[optionKey] === undefined || options[optionKey] !== options[optionKey]) {
 			throw { message: 'parameter value "'+optionKey+'" should not be '+ options[optionKey]  };
 		}
 	});
@@ -419,12 +433,14 @@ LiskAPI.prototype.sendRequestPromise = function (requestType, options) {
  */
 
 LiskAPI.prototype.doPopsicleRequest = function (requestValue) {
-	return popsicle.request({
+	console.log('requestValue: ', requestValue);
+	var result = popsicle.request({
 		method: requestValue.requestMethod,
 		url: requestValue.requestUrl,
 		headers: requestValue.nethash,
 		body: requestValue.requestMethod !== 'GET' ? requestValue.requestParams : ''
 	}).use(popsicle.plugins.parse(['json', 'urlencoded']));
+	return result;
 };
 
 /**
@@ -487,7 +503,8 @@ LiskAPI.prototype.changeRequest = function (requestType, options) {
  */
 
 LiskAPI.prototype.checkRequest = function (requestType, options) {
-	return parseOfflineRequest(requestType, options).requestMethod;
+	var result = parseOfflineRequest(requestType, options).requestMethod;
+	return result;
 };
 
 /**
