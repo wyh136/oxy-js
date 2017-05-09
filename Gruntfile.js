@@ -15,11 +15,11 @@ module.exports = function (grunt) {
 		browserify: {
 			js: {
 				src: './index.js',
-				dest: './dist/lisk-js.js'
+				dest: './dist/shift-js.js'
 			},
 			options: {
 				browserifyOptions: {
-					standalone: 'lisk'
+					standalone: 'shift'
 				}
 			}
 		},
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 			},
 			myTarget: {
 				files: {
-					'dist/lisk-js.min.js': ['dist/lisk-js.js']
+					'dist/shift-js.min.js': ['dist/shift-js.js']
 				}
 			}
 		},
