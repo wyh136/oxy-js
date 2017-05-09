@@ -433,13 +433,13 @@ LiskAPI.prototype.sendRequestPromise = function (requestType, options) {
  */
 
 LiskAPI.prototype.doPopsicleRequest = function (requestValue) {
-	console.log('requestValue: ', requestValue);
 	var result = popsicle.request({
 		method: requestValue.requestMethod,
 		url: requestValue.requestUrl,
 		headers: requestValue.nethash,
 		body: requestValue.requestMethod !== 'GET' ? requestValue.requestParams : ''
 	}).use(popsicle.plugins.parse(['json', 'urlencoded']));
+//	console.log('doPopsicleRequest: ', result);
 	return result;
 };
 
@@ -504,6 +504,7 @@ LiskAPI.prototype.changeRequest = function (requestType, options) {
 
 LiskAPI.prototype.checkRequest = function (requestType, options) {
 	var result = parseOfflineRequest(requestType, options).requestMethod;
+//	console.log('checkRequest', result);
 	return result;
 };
 
