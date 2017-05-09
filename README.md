@@ -70,6 +70,7 @@ Tests written using mocha + schedule.js.
 
 ## Authors
 
+- GoldenEye <goldeneye@shiftnrg.org>
 - Ralf S <ralfs@shiftnrg.org>
 - Boris Povod <boris@crypti.me>
 - Oliver Beddows <oliver@lightcurve.io>
