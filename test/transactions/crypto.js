@@ -150,24 +150,34 @@ describe('crypto.js', function () {
 			(fee).should.be.not.NaN;
 		});
 
-		it('should return 10000000', function () {
+		it('should return 1000000', function () {
 			var fee = getFee({amount: 100000, type: 0});
+			(fee).should.be.type('number').and.equal(1000000);
+		});
+
+		it('should return 10000000', function () {
+			var fee = getFee({type: 1});
 			(fee).should.be.type('number').and.equal(10000000);
 		});
 
-		it('should return 500000000', function () {
-			var fee = getFee({type: 1});
-			(fee).should.be.type('number').and.equal(500000000);
-		});
-
-		it('should be equal 2500000000', function () {
+		it('should be equal 6000000000', function () {
 			var fee = getFee({type: 2});
-			(fee).should.be.type('number').and.equal(2500000000);
+			(fee).should.be.type('number').and.equal(6000000000);
 		});
 
 		it('should be equal 100000000', function () {
 			var fee = getFee({type: 3});
 			(fee).should.be.type('number').and.equal(100000000);
+		});
+
+		it('should be equal 50000000', function () {
+			var fee = getFee({type: 4});
+			(fee).should.be.type('number').and.equal(50000000);
+		});
+
+		it('should be equal 2500000000', function () {
+			var fee = getFee({type: 5});
+			(fee).should.be.type('number').and.equal(2500000000);
 		});
 	});
 
@@ -267,12 +277,12 @@ describe('crypto.js', function () {
 		});
 
 		it('should generate address by publicKey', function () {
-			var keys = crypto.getKeys('secret');
+			var keys = crypto.getKeys('opinion license car nominee squeeze assist hint want scout sing client wall');
 			var address = getAddress(keys.publicKey);
 
 			(address).should.be.ok;
 			(address).should.be.type('string');
-			(address).should.be.equal('18160565574430594874L');
+			(address).should.be.equal('15474331451479483567S');
 		});
 	});
 

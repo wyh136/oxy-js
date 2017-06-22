@@ -40,12 +40,12 @@ describe('Lisk.api()', function () {
 		it('Nethash should be hardcoded variables', function () {
 			var NetHash = {
 				'Content-Type': 'application/json',
-				'nethash': 'ed14889723f24ecc54871d058d98ce91ff2f973192075c0155ba2b7b70ad2511',
-				'broadhash': 'ed14889723f24ecc54871d058d98ce91ff2f973192075c0155ba2b7b70ad2511',
-				'os': 'lisk-js-api',
-				'version': '1.0.0',
-				'minVersion': '>=0.5.0',
-				'port': 8000
+				'nethash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
+				'broadhash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
+				'os': 'shift-js-api',
+				'version': '6.5.0',
+				'minVersion': '>=6.5.0',
+				'port': 9305
 			};
 			(LSK.getNethash()).should.eql(NetHash);
 		});
@@ -55,12 +55,12 @@ describe('Lisk.api()', function () {
 
 			var NetHash = {
 				'Content-Type': 'application/json',
-				'nethash': 'da3ed6a45429278bac2666961289ca17ad86595d33b31037615d4b8e8f158bba',
-				'broadhash': 'da3ed6a45429278bac2666961289ca17ad86595d33b31037615d4b8e8f158bba',
-				'os': 'lisk-js-api',
-				'version': '1.0.0',
-				'minVersion': '>=0.5.0',
-				'port': 7000
+				'nethash': 'cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12',
+				'broadhash': 'cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12',
+				'os': 'shift-js-api',
+				'version': '6.5.0',
+				'minVersion': '>=6.5.0',
+				'port': 9405
 			};
 
 			(LSK.getNethash()).should.eql(NetHash);
