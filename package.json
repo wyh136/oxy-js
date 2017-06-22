@@ -1,6 +1,6 @@
 {
   "name": "shift-js",
-  "version": "0.4.0",
+  "version": "6.5.0",
   "description": "JavaScript library for sending Shift transactions from the client or server",
   "main": "index.js",
   "scripts": {
