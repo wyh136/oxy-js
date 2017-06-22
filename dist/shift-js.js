@@ -138,7 +138,7 @@ LiskAPI.prototype.netHashOptions = function () {
 			'broadhash': 'cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12',
 			'os': 'shift-js-api',
 			'version': '6.5.0',
-			'minVersion': '>=6.3.0',
+			'minVersion': '>=6.5.0',
 			'port': this.port
 		},
 		mainnet: {
@@ -146,8 +146,8 @@ LiskAPI.prototype.netHashOptions = function () {
 			'nethash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
 			'broadhash': '7337a324ef27e1e234d1e9018cacff7d4f299a09c2df9be460543b8f7ef652f1',
 			'os': 'shift-js-api',
-			'version': '6.3.0',
-			'minVersion': '>=6.3.0',
+			'version': '6.5.0',
+			'minVersion': '>=6.5.0',
 			'port': this.port
 		}
 	};
@@ -1111,19 +1111,19 @@ module.exports = ParseOfflineRequest;
 
 module.exports = {
 	fees: {
-		send: 10000000,
-		signature: 500000000,
-		delegate: 2500000000,
+		send: 1000000,
+		signature: 10000000,
+		delegate: 6000000000,
 		vote: 100000000,
-		multisignature: 500000000,
+		multisignature: 50000000,
 		dapp: 2500000000
 	},
 	fee: {
-		0: 10000000,
-		1: 500000000,
-		2: 2500000000,
+		0: 1000000,
+		1: 10000000,
+		2: 6000000000,
 		3: 100000000,
-		4: 500000000,
+		4: 50000000,
 		5: 2500000000
 	}
 };
