@@ -1,6 +1,6 @@
-# <a href="http://liskhq.github.io/lisk-js/">Lisk-JS</a>
+# <a href="http://liskhq.github.io/lisk-js/">Shift-JS</a>
 
-Lisk JS is a JavaScript library for [Lisk - the cryptocurrency and blockchain application platform](https://github.com/LiskHQ/lisk). It allows developers to create offline transactions and broadcast them onto the network. It also allows developers to interact with the core Lisk API, for retrieval of collections and single records of data located on the Lisk blockchain. Its main benefit is that it does not require a locally installed Lisk node, and instead utilizes the existing peers on the network. It can be used from the client as a [browserify](http://browserify.org/) compiled module, or on the server as a standard Node.js module.
+Shift JS is a JavaScript library for [Shift - the cryptocurrency and blockchain application platform](https://github.com/LiskHQ/lisk). It allows developers to create offline transactions and broadcast them onto the network. It also allows developers to interact with the core Lisk API, for retrieval of collections and single records of data located on the Lisk blockchain. Its main benefit is that it does not require a locally installed Lisk node, and instead utilizes the existing peers on the network. It can be used from the client as a [browserify](http://browserify.org/) compiled module, or on the server as a standard Node.js module.
 
 [![Build Status](https://travis-ci.org/LiskHQ/lisk-js.svg?branch=development)](https://travis-ci.org/LiskHQ/lisk-js)
 [![Coverage Status](https://coveralls.io/repos/github/LiskHQ/lisk-js/badge.svg?branch=development)](https://coveralls.io/github/LiskHQ/lisk-js?branch=development)
@@ -10,7 +10,7 @@ Lisk JS is a JavaScript library for [Lisk - the cryptocurrency and blockchain ap
 ## Browser
 
 ```html
-<script src="./lisk-js.js"></script>
+<script src="./shift-js.js"></script>
 <script>
 	lisk.api().searchDelegateByUsername('oliver', function (response) {
 		console.log(response);
