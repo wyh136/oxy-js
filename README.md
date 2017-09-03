@@ -1,6 +1,6 @@
-# <a href="http://liskhq.github.io/lisk-js/">Lisk-JS</a>
+# OXY-JS
 
-Lisk JS is a JavaScript library for [Lisk - the cryptocurrency and blockchain application platform](https://github.com/LiskHQ/lisk). It allows developers to create offline transactions and broadcast them onto the network. It also allows developers to interact with the core Lisk API, for retrieval of collections and single records of data located on the Lisk blockchain. Its main benefit is that it does not require a locally installed Lisk node, and instead utilizes the existing peers on the network. It can be used from the client as a [browserify](http://browserify.org/) compiled module, or on the server as a standard Node.js module.
+OXY JS is a JavaScript library forked from Lisk, to create offline transactions and broadcast them onto the network. It also allows developers to interact with the core Oxycoin API, for retrieval of collections and single records of data located on the Oxycoin blockchain. Its main benefit is that it does not require a locally installed Oxycoin node, and instead utilizes the existing peers on the network. It can be used from the client as a [browserify](http://browserify.org/) compiled module, or on the server as a standard Node.js module.
 
 [![Build Status](https://travis-ci.org/LiskHQ/lisk-js.svg?branch=development)](https://travis-ci.org/LiskHQ/lisk-js)
 [![Coverage Status](https://coveralls.io/repos/github/LiskHQ/lisk-js/badge.svg?branch=development)](https://coveralls.io/github/LiskHQ/lisk-js?branch=development)
@@ -70,6 +70,7 @@ Tests written using mocha + schedule.js.
 
 ## Authors
 
+- Jan <lepetitjan@icloud.com>
 - GoldenEye <goldeneye@shiftnrg.org>
 - Ralf S <ralfs@shiftnrg.org>
 - Boris Povod <boris@crypti.me>
